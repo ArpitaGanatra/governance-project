@@ -27,6 +27,24 @@ function to return data as view
 
     Copy and modify existing contract
 
+    allow proposal to be submitted by verified 
+      check if proposal is submitted by approved address
+      struct mapped like so mapping(string title => proposal( string body, unit256 voteEndDate, unit256 yes votes, unit256 no votes))
+      args title, body, vote date
+    
+    checkIfElgible
+      Check if nft holder && age && status
+
+    voteOnProposal
+      check if voter is eligible && voting is still open
+      args string title boolean vote or string vote to allow abstain
+
+    viewProposal(string title)
+      return proposals
+
+    
+      
+
 **client side**
 
     Form for entering data that calls mint function from nft 
