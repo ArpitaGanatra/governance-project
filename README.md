@@ -3,8 +3,7 @@
 Install dependencies:
 
 ```
-npm install hardhat
-npm install @openzeppelin/contracts @nomiclabs/hardhat-etherscan dotenv
+npm i
 ```
 
 Install [BokkyPooBahsDateTimeLibrary](https://github.com/bokkypoobah/BokkyPooBahsDateTimeLibrary) :

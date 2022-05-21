@@ -57,18 +57,26 @@ async function main() {
 
   // const updateEligibity = await birthCertificate
   //   .connect(owner)
-  //   .updateEligibity(0);
-  // console.log(updateEligibity);
+  //   .updateEligibity(0); // this one already 18
 
-  const updateEligibity2 = await birthCertificate
-    .connect(people2)
-    .updateEligibity(1);
-  console.log(updateEligibity2);
+  // const tokenURINew = await birthCertificate
+  //   .connect(owner)
+  //   .generateCertificate(0);
+  // console.log(tokenURINew);
+
+  // const updateEligibity2 = await birthCertificate
+  //   .connect(people2)
+  //   .updateEligibity(1); //should throw error because people2 not own tokenId 1
+  // console.log(updateEligibity2);
 
   // check if non owner try to mint:
-  // await birthCertificate
-  //   .connect(people)
-  //   .mint(people.address, "Name", "Hospital", "Eart", 28948291);
+  await birthCertificate
+    .connect(people2)
+    .mint(people2.address, "Name", "Hospital", "Eart", 28948291);
+  const tokenURI2 = await birthCertificate
+    .connect(owner)
+    .generateCertificate(2);
+  console.log(tokenURI2);
 }
 
 main()

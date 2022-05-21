@@ -5,6 +5,9 @@ require("@nomiclabs/hardhat-etherscan");
 module.exports = {
   solidity: "0.8.4",
   networks: {
+    hardhat: {
+      allowUnlimitedContractSize: true,
+    },
     mumbai: {
       url: process.env.TESTNET_RPC,
       accounts: [process.env.PRIVATE_KEY],
