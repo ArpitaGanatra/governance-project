@@ -8,7 +8,7 @@ import "@openzeppelin/contracts/utils/Base64.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "library/BokkyPooBahsDateTimeLibrary/contracts/BokkyPooBahsDateTimeLibrary.sol";
 
-contract BirthCertificate is ERC721URIStorage, Ownable {
+contract BirthCertificate is ERC721URIStorage {
   using Strings for uint256;
   using Counters for Counters.Counter;
   Counters.Counter private _tokenIds;
@@ -123,7 +123,7 @@ contract BirthCertificate is ERC721URIStorage, Ownable {
     );
   }
 
-  function mint(address _address, string memory _name, string memory _locationofBirth, string memory _location, uint256 _dateofBirth) public onlyOwner { 
+  function mint(address _address, string memory _name, string memory _locationofBirth, string memory _location, uint256 _dateofBirth) public { 
     require(balanceOf(_address) < MAX_BC_PER_ADDRESS, "Only one BC per address!");
     _tokenIds.increment(); //tokenId start from 1
     uint256 newTokenId = _tokenIds.current();
