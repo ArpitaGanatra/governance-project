@@ -3,9 +3,9 @@ import { useState, useRef, useEffect } from "react";
 import { providers, Contract } from "ethers";
 import Web3Modal from "web3modal";
 
-import {Box, Tab, Button, Stack, TextField, Grid} from '@mui/material'
+import {Box, Tab, Button, Stack, TextField, Grid, Paper} from '@mui/material'
 import {TabContext, TabList, TabPanel} from '@mui/lab'
-import { styled } from "@mui/material/styles";
+import { styled, ThemeProvider, createTheme} from "@mui/material/styles";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
@@ -61,6 +61,14 @@ const CssTextField = styled(TextField)({
     },
 });
 
+const theme = createTheme({
+    palette: {
+      primary: {
+        main: "#e6aaae",
+        // contrastText: "#fff" //button text white instead of black
+      }
+    }
+  });
 
 const App = () => {
     const [walletConnected, setWalletConnected] = useState(false);
@@ -326,6 +334,7 @@ const App = () => {
     };
 
     return (
+        <ThemeProvider theme={theme}>
         <div className="App">
             <div className="navbar__container">
                 <h2 className="website__title">State Management DAO</h2>
@@ -373,13 +382,14 @@ const App = () => {
                             </TabList>
                         </Box>
                         <TabPanel value="1">
-                            <Mint 
+                               <Mint 
                               alreadyMinted={alreadyMinted} 
                               formValues={formValues} 
                               handleInputChange={handleInputChange} 
                               handleSubmit={handleSubmit}
                               CssTextField={CssTextField}
-                            />
+                            /> 
+                            
                             {/* <form
                                 // onSubmit={handleSubmit}
                                 style={{
@@ -488,6 +498,7 @@ const App = () => {
                 </Box>
             </div>
         </div>
+        </ThemeProvider>
     );
 };
 

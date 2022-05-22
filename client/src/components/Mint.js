@@ -1,5 +1,5 @@
 import React from 'react'
-import {Grid, Stack, Button} from '@mui/material'
+import {Grid, Stack, Button, Paper} from '@mui/material'
 
 const Mint = ({alreadyMinted, formValues, handleInputChange, handleSubmit, CssTextField}) => {
   return (
