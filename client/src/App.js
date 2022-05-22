@@ -65,7 +65,6 @@ const theme = createTheme({
     palette: {
       primary: {
         main: "#e6aaae",
-        // contrastText: "#fff" //button text white instead of black
       }
     }
   });

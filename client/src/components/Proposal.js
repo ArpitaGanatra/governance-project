@@ -1,7 +1,10 @@
 import React from 'react'
-import {Grid, Stack, Button} from '@mui/material'
+import {Grid, Stack, Button, TextField} from '@mui/material'
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 
-const Proposal = ({nftBalance, CssTextField, proposalFormValues, handleCreateInputChange,setDeadlineTime, createProposal, createProposalLoading}) => {
+const Proposal = ({nftBalance, CssTextField, proposalFormValues, handleCreateInputChange,setDeadlineTime, createProposal, createProposalLoading, deadlineTime}) => {
   return (
     <div>
          {nftBalance === 0 ? (
@@ -83,11 +86,12 @@ const Proposal = ({nftBalance, CssTextField, proposalFormValues, handleCreateInp
                                                 />
                                             </Grid>
                                             <Grid item>
-                                                {/* <LocalizationProvider
+                                                <LocalizationProvider
                                                     dateAdapter={AdapterDateFns}
                                                 >
                                                     <DateTimePicker
                                                         label="Voting Deadline"
+                                                        sx={{color:'#fff'}}
                                                         renderInput={(
                                                             params
                                                         ) => (
@@ -104,8 +108,8 @@ const Proposal = ({nftBalance, CssTextField, proposalFormValues, handleCreateInp
                                                             );
                                                         }}
                                                     />
-                                                </LocalizationProvider> */}
-                                                <CssTextField
+                                                </LocalizationProvider>
+                                                {/* <CssTextField
                                                     id="date"
                                                     label="Deadline"
                                                     name="deadline"
@@ -124,7 +128,7 @@ const Proposal = ({nftBalance, CssTextField, proposalFormValues, handleCreateInp
                                                     InputLabelProps={{
                                                         shrink: true,
                                                     }}
-                                                />
+                                                /> */}
                                             </Grid>
                                             <Button
                                                 variant="contained"
